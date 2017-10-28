@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.2.1'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile(
+            "junit:junit:4.12",
+            "org.assertj:assertj-core:3.2.0"
+    )
+}
+
+mainClassName = 'au.com.ioof.elmostreet.Simulation'
