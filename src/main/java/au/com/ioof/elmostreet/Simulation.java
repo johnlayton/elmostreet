@@ -7,6 +7,10 @@ public final class Simulation {
 
     public static void main(final String[] args) {
 
+        if (args.length != 1) {
+            throw new RuntimeException("Invalid scenario");
+        }
+
         System.out.println("Hello");
 
     }

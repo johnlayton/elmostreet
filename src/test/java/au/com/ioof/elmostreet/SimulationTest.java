@@ -20,20 +20,25 @@ public class SimulationTest {
         System.setErr(new PrintStream(stderr));
     }
 
+    @Test(expected = RuntimeException.class)
+    public void shouldThrowExceptionIfNotSuppliedScenario() throws Exception {
+        Simulation.main(new String[] {});
+    }
+
     @Test
-    public void scenario1() throws Exception {
+    public void shouldCompleteScenario1() throws Exception {
         Simulation.main(getSimulationArgs("scenario1.txt"));
         assertEquals("0,1,NORTH", stdout.toString());
     }
 
     @Test
-    public void scenario2() throws Exception {
+    public void shouldCompleteScenario2() throws Exception {
         Simulation.main(getSimulationArgs("scenario2.txt"));
         assertEquals("0,0,WEST", stdout.toString());
     }
 
     @Test
-    public void scenario3() throws Exception {
+    public void shouldCompleteScenario3() throws Exception {
         Simulation.main(getSimulationArgs("scenario3.txt"));
         assertEquals("3,3,NORTH", stdout.toString());
     }

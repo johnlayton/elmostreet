@@ -1,11 +1,11 @@
 package au.com.ioof.elmostreet;
 
-public class Table {
+public final class Table {
     private final int x;
     private final int y;
 
-    public Table(int x,
-                 int y) {
+    public Table(final int x,
+                 final int y) {
         this.x = x;
         this.y = y;
     }
