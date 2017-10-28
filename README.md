@@ -1,6 +1,6 @@
 # elmostreet
 
-###
+### Solution demonstration
 
 Run the tests;
 ```

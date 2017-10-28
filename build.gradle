@@ -2,6 +2,9 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
 
+apply plugin: "checkstyle"
+apply plugin: 'findbugs'
+
 task wrapper(type: Wrapper) {
     gradleVersion = '4.2.1'
 }
@@ -12,8 +15,7 @@ repositories {
 
 dependencies {
     testCompile(
-            "junit:junit:4.12",
-            "org.assertj:assertj-core:3.2.0"
+        "junit:junit:4.12"
     )
 }
 
