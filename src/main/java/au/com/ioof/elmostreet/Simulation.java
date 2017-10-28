@@ -1,8 +1,11 @@
 package au.com.ioof.elmostreet;
 
-public class Simulation {
+public final class Simulation {
 
-    public static void main(String[] args) {
+    private Simulation() {
+    }
+
+    public static void main(final String[] args) {
 
         System.out.println("Hello");
 

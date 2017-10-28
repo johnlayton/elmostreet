@@ -22,20 +22,26 @@ public class SimulationTest {
 
     @Test
     public void scenario1() throws Exception {
-        Simulation.main(new String[] { getInputFile("scenario1.txt") });
+        Simulation.main(getSimulationArgs("scenario1.txt"));
         assertEquals("0,1,NORTH", stdout.toString());
     }
 
     @Test
     public void scenario2() throws Exception {
-        Simulation.main(new String[] { getInputFile("scenario2.txt") });
+        Simulation.main(getSimulationArgs("scenario2.txt"));
         assertEquals("0,0,WEST", stdout.toString());
     }
 
     @Test
     public void scenario3() throws Exception {
-        Simulation.main(new String[] { getInputFile("scenario3.txt") });
+        Simulation.main(getSimulationArgs("scenario3.txt"));
         assertEquals("3,3,NORTH", stdout.toString());
+    }
+
+    private String[] getSimulationArgs(final String scenario) throws Exception {
+        return new String[] {
+                getInputFile(scenario)
+        };
     }
 
     private String getInputFile(final String scenario) throws Exception {

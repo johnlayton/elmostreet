@@ -15,8 +15,12 @@ repositories {
 
 dependencies {
     testCompile(
-        "junit:junit:4.12"
+        'junit:junit:4.12'
     )
+}
+
+checkstyle {
+    toolVersion = '7.6.1'
 }
 
 mainClassName = 'au.com.ioof.elmostreet.Simulation'
