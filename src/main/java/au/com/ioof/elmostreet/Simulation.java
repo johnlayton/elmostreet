@@ -1,7 +1,5 @@
 package au.com.ioof.elmostreet;
 
-import javax.swing.text.Position;
-
 public final class Simulation {
 
     private Simulation() {
