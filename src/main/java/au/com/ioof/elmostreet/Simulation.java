@@ -1,5 +1,7 @@
 package au.com.ioof.elmostreet;
 
+import javax.swing.text.Position;
+
 public final class Simulation {
 
     private Simulation() {
@@ -11,7 +13,7 @@ public final class Simulation {
             throw new RuntimeException("Invalid scenario");
         }
 
-        System.out.println("Hello");
+//        System.out.println(new Robot().run(args[0]));
 
     }
 
