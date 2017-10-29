@@ -2,8 +2,8 @@ package au.com.ioof.elmostreet;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TableTest {
 
@@ -25,6 +25,6 @@ public class TableTest {
 
     @Test(expected = RuntimeException.class)
     public void shouldExceptOnConstruction() throws Exception {
-        new Table(0,0);
+        new Table(0, 0);
     }
 }

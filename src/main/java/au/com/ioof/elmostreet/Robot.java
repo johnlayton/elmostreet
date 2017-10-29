@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
-public class Robot implements Consumer<String>, Visitor<Robot> {
+public final class Robot implements Consumer<String>, Visitor<Robot> {
 
     private Table table;
     private Consumer<String> reporter;
@@ -60,8 +60,8 @@ public class Robot implements Consumer<String>, Visitor<Robot> {
 
     @Override
     public Robot visit(final Move command) {
-        if (null != position) {
-            position = table.contains(position.move(facing)) ? position.move(facing) : position;
+        if (null != position && table.contains(position.move(facing))) {
+            position = position.move(facing);
         }
         return this;
     }

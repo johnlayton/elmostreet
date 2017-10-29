@@ -7,11 +7,14 @@ public enum Facing {
 
     NORTH, EAST, SOUTH, WEST;
 
+    private static final int LEFT_INCREMENT = 3;
+    private static final int RIGHT_INCREMENT = 5;
+
     public Facing rotate(final Command command) {
         if (LEFT == command) {
-            return values()[(ordinal() + 3) % 4];
+            return values()[(ordinal() + LEFT_INCREMENT) % values().length];
         } else if (RIGHT == command) {
-            return values()[(ordinal() + 5) % 4];
+            return values()[(ordinal() + RIGHT_INCREMENT) % values().length];
         } else {
             return this;
         }

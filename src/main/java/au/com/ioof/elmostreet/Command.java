@@ -11,7 +11,9 @@ import static au.com.ioof.elmostreet.Command.Right.RIGHT;
 
 public abstract class Command {
 
-    public static interface Visitor<T> {
+    public abstract <T> T accept(Visitor<T> visitor);
+
+    public interface Visitor<T> {
         T visit(Placement command);
         T visit(Left command);
         T visit(Right command);
@@ -20,7 +22,7 @@ public abstract class Command {
         T visit(NoOp command);
     }
 
-    public static class Placement extends Command {
+    public static final class Placement extends Command {
 
         public static final Pattern PATTERN = Pattern.compile("PLACE (?<x>\\d+),(?<y>\\d+),(?<facing>NORTH|EAST|SOUTH|WEST)");
 
@@ -34,7 +36,7 @@ public abstract class Command {
         }
 
         @Override
-        public <T> T accept(Visitor<T> visitor) {
+        public <T> T accept(final Visitor<T> visitor) {
             return visitor.visit(this);
         }
 
@@ -52,7 +54,7 @@ public abstract class Command {
         public static final Left LEFT = new Left();
 
         @Override
-        public <T> T accept(Visitor<T> visitor) {
+        public <T> T accept(final Visitor<T> visitor) {
             return visitor.visit(this);
         }
     }
@@ -62,7 +64,7 @@ public abstract class Command {
         public static final Right RIGHT = new Right();
 
         @Override
-        public <T> T accept(Visitor<T> visitor) {
+        public <T> T accept(final Visitor<T> visitor) {
             return visitor.visit(this);
         }
     }
@@ -72,7 +74,7 @@ public abstract class Command {
         public static final Move MOVE = new Move();
 
         @Override
-        public <T> T accept(Visitor<T> visitor) {
+        public <T> T accept(final Visitor<T> visitor) {
             return visitor.visit(this);
         }
     }
@@ -82,7 +84,7 @@ public abstract class Command {
         public static final Report REPORT = new Report();
 
         @Override
-        public <T> T accept(Visitor<T> visitor) {
+        public <T> T accept(final Visitor<T> visitor) {
             return visitor.visit(this);
         }
     }
@@ -91,7 +93,7 @@ public abstract class Command {
         public static final NoOp NO_OP = new NoOp();
 
         @Override
-        public <T> T accept(Visitor<T> visitor) {
+        public <T> T accept(final Visitor<T> visitor) {
             return visitor.visit(this);
         }
     }
@@ -112,16 +114,14 @@ public abstract class Command {
         }
     }
 
-    private static Command createPlacementCommand(String command) {
+    private static Command createPlacementCommand(final String command) {
         final Matcher matcher = Placement.PATTERN.matcher(command);
         if (matcher.matches()) {
-            return new Placement(new Position(Integer.parseInt(matcher.group("x"), 10),
-                                              Integer.parseInt(matcher.group("y"), 10)),
+            return new Placement(new Position(Integer.parseInt(matcher.group("x")),
+                                              Integer.parseInt(matcher.group("y"))),
                                  Facing.valueOf(matcher.group("facing")));
         } else {
             return NO_OP;
         }
     }
-
-    public abstract <T> T accept(final Visitor<T> visitor);
 }

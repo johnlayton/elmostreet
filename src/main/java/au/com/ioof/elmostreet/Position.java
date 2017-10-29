@@ -2,7 +2,7 @@ package au.com.ioof.elmostreet;
 
 import java.util.Objects;
 
-public class Position {
+public final class Position {
 
     private final int x;
     private final int y;
@@ -49,7 +49,7 @@ public class Position {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }
@@ -57,8 +57,8 @@ public class Position {
             return false;
         }
         Position position = (Position) o;
-        return x == position.x &&
-                y == position.y;
+        return x == position.x
+                && y == position.y;
     }
 
     @Override

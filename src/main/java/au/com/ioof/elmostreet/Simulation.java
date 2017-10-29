@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public final class Simulation {
 
+    private static final int X_SIZE = 5;
+    private static final int Y_SIZE = 5;
+
     private Simulation() {
     }
 
@@ -13,7 +16,7 @@ public final class Simulation {
             throw new RuntimeException("Invalid scenario");
         }
 
-        Arrays.stream(args).forEach(scenario -> new Robot(new Table(5, 5), System.out::println).accept(scenario));
+        Arrays.stream(args).forEach(scenario -> new Robot(new Table(X_SIZE, Y_SIZE), System.out::println).accept(scenario));
     }
 
 }

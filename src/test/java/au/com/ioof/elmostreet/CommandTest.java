@@ -22,13 +22,13 @@ public class CommandTest {
         assertTrue(Command.parse("PLACE 0,0,NORTH").accept(new BooleanVisitorAdapter() {
             @Override
             public Boolean visit(Placement command) {
-                return command.getFacing() == NORTH && command.getPosition().equals(new Position(0,0));
+                return command.getFacing() == NORTH && command.getPosition().equals(new Position(0, 0));
             }
         }));
         assertTrue(Command.parse("PLACE 0,0,WEST").accept(new BooleanVisitorAdapter() {
             @Override
             public Boolean visit(Placement command) {
-                return command.getFacing() == WEST && command.getPosition().equals(new Position(0,0));
+                return command.getFacing() == WEST && command.getPosition().equals(new Position(0, 0));
             }
         }));
     }

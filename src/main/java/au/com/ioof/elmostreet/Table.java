@@ -3,7 +3,7 @@ package au.com.ioof.elmostreet;
 import static au.com.ioof.elmostreet.Facing.EAST;
 import static au.com.ioof.elmostreet.Facing.NORTH;
 
-public class Table {
+public final class Table {
 
     private final Position min = new Position(0, 0);
     private final Position max;

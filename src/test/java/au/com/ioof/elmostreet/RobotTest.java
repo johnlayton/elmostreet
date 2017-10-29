@@ -3,14 +3,11 @@ package au.com.ioof.elmostreet;
 import au.com.ioof.elmostreet.Command.Placement;
 import org.junit.Test;
 
-import java.util.function.Consumer;
-
 import static au.com.ioof.elmostreet.Command.Move.MOVE;
 import static au.com.ioof.elmostreet.Command.NoOp.NO_OP;
 import static au.com.ioof.elmostreet.Command.Report.REPORT;
 import static au.com.ioof.elmostreet.Command.Right.RIGHT;
 import static au.com.ioof.elmostreet.Facing.EAST;
-import static au.com.ioof.elmostreet.Facing.NORTH;
 import static au.com.ioof.elmostreet.Facing.WEST;
 import static org.junit.Assert.assertEquals;
 

@@ -8,7 +8,7 @@ import static au.com.ioof.elmostreet.Facing.NORTH;
 import static au.com.ioof.elmostreet.Facing.EAST;
 import static au.com.ioof.elmostreet.Facing.SOUTH;
 import static au.com.ioof.elmostreet.Facing.WEST;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class FacingTest {
 
