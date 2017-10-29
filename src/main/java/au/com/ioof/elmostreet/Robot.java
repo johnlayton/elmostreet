@@ -68,7 +68,7 @@ public final class Robot implements Consumer<String>, Visitor<Robot> {
 
     @Override
     public Robot visit(final Report command) {
-        if (null != position) {
+        if (null != position && null != facing) {
             reporter.accept(String.format("%s,%s", position, facing));
         }
         return this;

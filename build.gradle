@@ -23,6 +23,17 @@ checkstyle {
     toolVersion = '7.6.1'
 }
 
+findbugs {
+    excludeFilter = file("$rootProject.projectDir/config/findbugs/exclude.xml")
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
 run {
     if ( project.hasProperty("scenarios") ) {
         args Eval.me(scenarios)
