@@ -7,13 +7,13 @@ public final class Position {
     private final int x;
     private final int y;
 
-    public Position(final int x,
-                    final int y) {
+    Position(final int x,
+             final int y) {
         this.x = x;
         this.y = y;
     }
 
-    public Position move(final Facing facing) {
+    Position moveInDirection(final Facing facing) {
         switch (facing) {
             case NORTH:
                 return new Position(x, y + 1);
@@ -28,8 +28,8 @@ public final class Position {
         }
     }
 
-    public boolean ge(final Position position,
-                      final Facing facing) {
+    boolean greaterThanOrEqualInDirection(final Position position,
+                                          final Facing facing) {
         switch (facing) {
             case NORTH:
                 return y >= position.y;

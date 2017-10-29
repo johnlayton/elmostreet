@@ -22,8 +22,8 @@ public final class Robot implements Consumer<String>, Visitor<Robot> {
     private Position position;
     private Facing facing;
 
-    public Robot(final Table table,
-                 final Consumer<String> reporter) {
+    Robot(final Table table,
+          final Consumer<String> reporter) {
         this.table = table;
         this.reporter = reporter;
     }
@@ -60,8 +60,8 @@ public final class Robot implements Consumer<String>, Visitor<Robot> {
 
     @Override
     public Robot visit(final Move command) {
-        if (null != position && table.contains(position.move(facing))) {
-            position = position.move(facing);
+        if (null != position && table.contains(position.moveInDirection(facing))) {
+            position = position.moveInDirection(facing);
         }
         return this;
     }

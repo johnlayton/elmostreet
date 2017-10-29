@@ -24,13 +24,13 @@ public abstract class Command {
 
     public static final class Placement extends Command {
 
-        public static final Pattern PATTERN = Pattern.compile("PLACE (?<x>\\d+),(?<y>\\d+),(?<facing>NORTH|EAST|SOUTH|WEST)");
+        static final Pattern PATTERN = Pattern.compile("PLACE (?<x>\\d+),(?<y>\\d+),(?<facing>NORTH|EAST|SOUTH|WEST)");
 
         private final Position position;
         private final Facing facing;
 
-        public Placement(final Position position,
-                         final Facing facing) {
+        Placement(final Position position,
+                  final Facing facing) {
             this.position = position;
             this.facing = facing;
         }
@@ -40,18 +40,19 @@ public abstract class Command {
             return visitor.visit(this);
         }
 
-        public Position getPosition() {
+        Position getPosition() {
             return position;
         }
 
-        public Facing getFacing() {
+        Facing getFacing() {
             return facing;
         }
     }
 
     public static final class Left extends Command {
-        public static final Pattern PATTERN = Pattern.compile("LEFT");
-        public static final Left LEFT = new Left();
+
+        static final Pattern PATTERN = Pattern.compile("LEFT");
+        static final Left LEFT = new Left();
 
         @Override
         public <T> T accept(final Visitor<T> visitor) {
@@ -60,8 +61,9 @@ public abstract class Command {
     }
 
     public static final class Right extends Command {
-        public static final Pattern PATTERN = Pattern.compile("RIGHT");
-        public static final Right RIGHT = new Right();
+
+        static final Pattern PATTERN = Pattern.compile("RIGHT");
+        static final Right RIGHT = new Right();
 
         @Override
         public <T> T accept(final Visitor<T> visitor) {
@@ -70,8 +72,9 @@ public abstract class Command {
     }
 
     public static final class Move extends Command {
-        public static final Pattern PATTERN = Pattern.compile("MOVE");
-        public static final Move MOVE = new Move();
+
+        static final Pattern PATTERN = Pattern.compile("MOVE");
+        static final Move MOVE = new Move();
 
         @Override
         public <T> T accept(final Visitor<T> visitor) {
@@ -80,8 +83,9 @@ public abstract class Command {
     }
 
     public static final class Report extends Command {
-        public static final Pattern PATTERN = Pattern.compile("REPORT");
-        public static final Report REPORT = new Report();
+
+        static final Pattern PATTERN = Pattern.compile("REPORT");
+        static final Report REPORT = new Report();
 
         @Override
         public <T> T accept(final Visitor<T> visitor) {
@@ -90,7 +94,8 @@ public abstract class Command {
     }
 
     public static final class NoOp extends Command {
-        public static final NoOp NO_OP = new NoOp();
+
+        static final NoOp NO_OP = new NoOp();
 
         @Override
         public <T> T accept(final Visitor<T> visitor) {
@@ -98,7 +103,7 @@ public abstract class Command {
         }
     }
 
-    public static Command parse(final String command) {
+    static Command parse(final String command) {
         if (Left.PATTERN.matcher(command).matches()) {
             return LEFT;
         } else if (Right.PATTERN.matcher(command).matches()) {

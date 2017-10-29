@@ -1,6 +1,6 @@
-# elmostreet
+## elmostreet
 
-### Solution demonstration
+### Solution Demonstration
 
 Run the tests;
 ```
@@ -18,9 +18,7 @@ Main application will take argument being the locations of the files containing 
 
 Robot class will hold the location and orientation of the robot.  It will also process the commands and ensure that the robot remains on the table
 
-Command Parser class will be responsible for parsing the command input.
-
-Command class is the abstract concept of a command with sub classing for concrete commands, Place, Report, Left, Right, Move.
+Command class is the abstract concept of a command with sub classing for concrete commands, Place, Report, Left, Right, Move.  It will parse the string commands
 
 Table class will hold the dimensions of the table and allow the robot processing the commands to ensure that it does fall from the table.
 

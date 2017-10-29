@@ -17,10 +17,10 @@ public final class Table {
     }
 
     public boolean contains(final Position position) {
-        return position.ge(min, NORTH)
-                && position.ge(min, EAST)
-                && max.ge(position, NORTH)
-                && max.ge(position, EAST);
+        return position.greaterThanOrEqualInDirection(min, NORTH)
+                && position.greaterThanOrEqualInDirection(min, EAST)
+                && max.greaterThanOrEqualInDirection(position, NORTH)
+                && max.greaterThanOrEqualInDirection(position, EAST);
     }
 
     public String toString() {
