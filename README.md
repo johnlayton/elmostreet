@@ -9,7 +9,9 @@ Run the tests;
 
 Run the application;
 ```
-./gradlew run -Pscenarios="['./src/test/resources/scenario1.txt', './src/test/resources/scenario2.txt', './src/test/resources/scenario3.txt']" 
+./gradlew run -Pscenarios="['./src/test/resources/scenario1.txt', \
+                            './src/test/resources/scenario2.txt', \
+                            './src/test/resources/scenario3.txt']" 
 ```
 
 ### Solution Description
