@@ -28,19 +28,37 @@ public class SimulationTest {
     @Test
     public void shouldCompleteScenario1() throws Exception {
         Simulation.main(getSimulationArgs("scenario1.txt"));
-        assertEquals("0,1,NORTH", stdout.toString());
+        assertEquals("0,1,NORTH\n", stdout.toString());
     }
 
     @Test
     public void shouldCompleteScenario2() throws Exception {
         Simulation.main(getSimulationArgs("scenario2.txt"));
-        assertEquals("0,0,WEST", stdout.toString());
+        assertEquals("0,0,WEST\n", stdout.toString());
     }
 
     @Test
     public void shouldCompleteScenario3() throws Exception {
         Simulation.main(getSimulationArgs("scenario3.txt"));
-        assertEquals("3,3,NORTH", stdout.toString());
+        assertEquals("3,3,NORTH\n", stdout.toString());
+    }
+
+    @Test
+    public void shouldIgnoreWhenNoValidCommands() throws Exception {
+        Simulation.main(getSimulationArgs("scenario4.txt"));
+        assertEquals("", stdout.toString());
+    }
+
+    @Test
+    public void shouldIgnoreWhenNoValidPlacementCommands() throws Exception {
+        Simulation.main(getSimulationArgs("scenario5.txt"));
+        assertEquals("", stdout.toString());
+    }
+
+    @Test
+    public void shouldIgnoreCommandsPreceedingPlacementCommands() throws Exception {
+        Simulation.main(getSimulationArgs("scenario6.txt"));
+        assertEquals("0,1,NORTH\n", stdout.toString());
     }
 
     private String[] getSimulationArgs(final String scenario) throws Exception {

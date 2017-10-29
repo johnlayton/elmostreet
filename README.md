@@ -9,14 +9,14 @@ Run the tests;
 
 Run the application;
 ```
-./gradlew run <location_of_file>
+./gradlew run -Pscenarios="['./src/test/resources/scenario1.txt', './src/test/resources/scenario2.txt']" 
 ```
 
 ### Solution Description
 
-Main application will take single argument being the location of the file containing the commands.
+Main application will take argument being the locations of the files containing the senarios.
 
-Robot class will hold the location and orientation of the robot.  It will also process the commands.
+Robot class will hold the location and orientation of the robot.  It will also process the commands and ensure that the robot remains on the table
 
 Command Parser class will be responsible for parsing the command input.
 
