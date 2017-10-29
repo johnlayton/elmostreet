@@ -14,6 +14,13 @@ Run the application;
                             './src/test/resources/scenario3.txt']" 
 ```
 
+Bootstrap;
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/johnlayton/elmostreet/master/demo.sh)"
+```
+
+
+
 ### Solution Description
 
 Main application will take argument being the locations of the files containing the senarios.
